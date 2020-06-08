@@ -28,7 +28,8 @@ a:active,button:active{
 /* Je commencer à construire ma page, place à l'effet de cascade et au poids des sélecteurs */
 
 body{
-  font-family:Tahoma, Arial, sans-serif;
+  font-family:"Work Sans", Tahoma, Arial, sans-serif;
+  font-weight:normal;
   color:#3d4246;
 }
 
