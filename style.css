@@ -1,0 +1,463 @@
+/* Reset css */
+/* Je supprime les valeurs par défaut de certaines propriétés qui sont génantes et Je peux aussi mettre en place des comportements communs à toutes les balises */
+
+body, h1, h2, p {
+  margin:0;
+}
+ul{
+  list-style:none;
+  padding-left:0;
+}
+button{
+  border:0 none;
+  padding:0;
+}
+
+a:hover,button:hover{
+  cursor:pointer;
+}
+
+a:focus,button:focus,input:focus,
+a:active,button:active{
+  outline:none;
+}
+
+
+/* Ma page */
+
+/* Je commencer à construire ma page, place à l'effet de cascade et au poids des sélecteurs */
+
+body{
+  font-family:Tahoma, Arial, sans-serif;
+  color:#3d4246;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+}
+
+a{
+  color:#557b97;
+  text-decoration:none;
+}
+a:hover{
+  text-decoration:underline;
+}
+
+/* 
+  Header 
+*/
+header{
+  border-bottom:2px solid #f5f5f5;
+  padding:25px;
+}
+
+/* J'utilise display flex pour aligner les éléments enfants dans le conteneur du header */
+header .container{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:center;
+}
+/* Ou je pourrais aussi utiliser sans display flex des display inline-block sur les éléments enfants */
+/*header .container > * {
+  display:inline-block;
+}*/
+
+
+/* 
+  Marque de la boutique
+*/
+.brand{
+  width:20%;
+}
+
+.brand img {
+  width:20px;
+  height:20px;
+  margin-right:10px;
+  vertical-align:middle; /* permet d'aligner un élement inline verticalement par rapport aux autres éléments inline*/
+}
+
+.brand p {
+  display:inline;
+  vertical-align:middle;
+  text-transform:uppercase;
+  font-weight:bold;
+  letter-spacing:2px; 
+}
+
+/* 
+  Menu principal 
+*/
+.menu-main{
+}
+
+/* Permet d'appliquer une couleur sur tous les <a> qui sont des liens (= avec un attribut href) */
+/*a:link {
+  color:#3d4246;
+  text-decoration:none;
+}*/
+
+
+/* deux options pour créer l'espacement des liens du menu*/
+/* avec word-spacing */
+/*.menu-main{
+  word-spacing:24px;
+}
+.menu-main a{
+  word-spacing:normal;
+}*/
+
+/* Ou avec margin */
+/* On va privilier plutôt cette règle pour appliquer la couleur sur tous les liens du menu (avec href ou sans href) */
+.menu-main a {
+  color:#3d4246;
+  text-decoration:none;
+  margin-right:24px;
+  font-size:14px;
+}
+
+.menu-main .last-item, /* j'utilise une classe sépcifique sur le dernier element */
+.menu-main a:last-child{ /* ou j'utilise la pseudo-classe last-child */
+  margin-right:0;
+}
+
+.menu-main a:hover{
+  text-decoration:underline;
+} 
+
+
+/* 
+  Menu secondaire
+*/
+.menu-secondary{
+  width:20%;
+  text-align:right;
+}
+
+.menu-secondary a{
+  display:inline-block;
+  vertical-align:middle;
+  margin-left:20px;
+}
+
+.menu-secondary a:first-child{
+  margin-left:0;
+}
+
+/* Icones */
+
+.icon-wen{
+  display:inline-block;
+  width:20px;
+  height:20px;
+  background-image:url('./images/loupe.svg');
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+}
+
+.icon-basket{
+  display:inline-block;
+  width:20px;
+  height:20px;
+  background-image:url('./images/panier.svg');
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+}
+
+/* Compteur de produit */
+
+.basket-counter{
+  display:block;
+  background:#557b97;
+  color:#ffffff;
+  font-weight:bold;
+  font-size:8px;
+  width:10px;
+  height:10px;
+  text-align:center;
+  border-radius:100%;
+  padding:1px;
+
+  position:relative; /* Je repositionne l'élément relativement à sa position d'origine dans le flux */
+  left:12px;
+  top:-4px;
+}
+
+/*
+  Zone principale
+*/
+
+main .container{
+  padding:60px 80px;
+}
+
+h1{
+  margin-bottom:18px;
+  text-align:center;
+  font-size:28px;
+}
+
+.continue-order{
+  display:block;
+  text-align:center;
+  font-size:14px;
+  margin-bottom:25px;
+}
+
+/* Tableau*/
+
+table{
+  width:100%;
+  border-spacing:0;
+}
+
+table th{
+  padding:30px 0;
+  font-weight:normal;
+  text-align:left;
+}
+
+table th,
+table td {
+  text-align:right;
+  min-width:60px;
+  border-bottom:1px solid #cccccc;
+}
+
+table th:first-child,
+table td:first-child{
+  text-align:left;
+}
+
+table td{
+  padding:20px 0;
+  color:#69727b;
+}
+
+tfoot td{
+  font-size:14px;
+  border-bottom:0 none;
+  text-align:right;
+}
+
+tfoot td p{
+  margin-bottom:10px;
+}
+
+tfoot td strong *{
+  font-size:16px;
+  font-weight:normal;
+  margin-left:55px;
+}
+
+/* Produit du tableau */
+
+.product-image{
+  width:90px;
+  float:left;/* le float permet de dire au texte qui suit de venir entouré l'image*/
+  margin-right:45px;
+}
+
+
+.product-description{
+  overflow:hidden; /* le overflow visible permet de gérer l'affichage des éléments venant après un float pour lui dire de ne pas entourer l'image*/
+}
+
+.product-description p {
+  margin-bottom:10px;
+}
+
+.product-quantity{
+  width:60px;
+  height: 40px;
+  text-align: center;
+  box-sizing: border-box;
+  border:1px solid #cccccc;
+  border-radius:2px;
+}
+
+/* Actions du panier */
+
+.basket-actions{
+  display:block;
+  text-align:right;
+  word-spacing:10px;
+}
+
+.basket-actions li {
+  display:inline-block;
+  word-spacing:normal;
+}
+
+/* Boutons */
+
+.button{
+  display:inline-block;
+  padding:10px 12px;
+  border-radius:2px;
+  background-color:#557b97;
+  text-transform:uppercase;
+  font-weight:bold;
+  font-size:14px;
+  letter-spacing:1px;
+  color:#fff;
+  border:1px solid #557b97;
+  transition-property:all;
+  transition-duration:0.2s;
+  transition-timing-function:ease-in-out;
+}
+
+.button:hover{
+  text-decoration:none;
+  background-color:#fff;
+  border-color:#557b97;
+  color:#557b97;
+  transition-property:all;
+  transition-duration:0.2s;
+  transition-timing-function:ease-in-out;
+}
+
+/* Footer */
+
+footer{
+  padding:45px;
+  background-color:#f5f5f5;
+}
+  
+footer .container{
+  display:flex; /* j'utilise display flex pour afficher mes élements sur une même ligne, resizer l'écran pour voir le comportement de chacun des 3 .footer-block */
+  flex-direction:row;
+}
+
+.footer-block{
+  margin-right:25px;
+  font-size:14px;
+}
+.footer-block:last-child{
+  margin-right:0;
+}
+
+.footer-block h2{
+  margin-bottom:30px;
+  font-size:14px;
+}
+
+.footer-line{
+  font-size:12px;
+  margin-top:25px;
+}
+
+/* block liens */
+
+.links{
+  flex:none; /* equivalent de flex-grow:0;flex-shrink:0;flex-basis:auto; J'affiche la boite de manière à ce qu'elle ne soit pas flexible, le reste va s'ajuster en fonction d'elle */
+  margin-right:100px;
+}
+
+.links a{
+  display:block;
+  margin-bottom:10px;
+  color:#3d4246;
+}
+
+/* block description */
+
+.description {
+  /* Rien a écrire ici finalement */
+}
+
+
+/* block newsletter */
+
+.newsletter{
+ flex:none;
+}
+
+.newsletter input{
+  width:385px;
+  height: 40px; /* 38px de hauteur + 1px de border top et 1px de border bottom = 40px de hauteur total*/
+  border:1px solid #cccccc;
+  padding:0 15px;
+  box-sizing:border-box;
+  vertical-align:middle;
+  border-radius:2px 0 0 2px;
+}
+
+/* je surcharge la classe .buttton*/
+.newsletter .button {
+  height:40px; /* je veux la même taille que le champs input donc je fixe la hauteur a 40px */
+  box-sizing:border-box;
+  vertical-align:middle;
+  border-radius:0 2px 2px 0;
+}
+
+
+
+/* popin */
+
+.popin{
+  position:fixed; /* Je positionne la popin par rapport au coin supérieur gauche de l'écran (elle sort du flux) */
+  top:0;
+  left:0;
+  width:100%; /* Je lui fait prendre toute la largeur de l'écran*/
+  height:100%; /* Je lui fait prendre toute la hauteur de l'écran*/
+  box-sizing:border-box;
+  background-color:rgba(0,0,0,0.5); /* J'appliquer une couleur noire transparente */;
+}
+
+.popin .box{
+  position:absolute; /* Je positionne la box par rapport a la balise parente */
+  max-width:500px; /* Je lui défini une taille */
+  width:100%;
+  height:300px;
+  background-color:#ffffff;
+  padding:50px;
+  top:0; /* Je lui défini qu'elle doit être situé à 0 px du haut, de la gauche, de la droite et du bas */
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto; /* Le poistionnement plus le margin:auto; permet de centrer la box */
+  box-sizing:border-box;
+}
+
+.popin .close{
+  position:absolute; /* Je positionne la croix par rapport a son parent (la .box) */
+  top:25px;
+  right:25px;
+  width:20px;
+  height:20px;
+  background:url('./images/croix.svg') no-repeat center center/20px 20px;
+  cursor:pointer;
+}
+.popin .close:active{ 
+  outline:none;/* Je supprime l'effet de bordure bleu avec ombre quand je click sur la croix */
+}
+
+.popin h2{
+  margin-bottom:30px;
+  font-weight:normal;
+  text-align:center;
+}
+
+.popin input{
+  width:100%;
+  height:40px;
+  padding-left:15px;
+  padding-right:15px;
+  margin-bottom:20px;
+  border:1px solid #cccccc;
+  border-radius:2px;
+  box-sizing:border-box;
+}
+
+.popin .button {
+  display:block;
+  width:50%;
+  margin:auto;
+}
+
