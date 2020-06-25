@@ -214,6 +214,7 @@ h1{
 
 table{
   width:100%;
+  max-width:1200px;
   border-spacing:0;
 }
 
@@ -303,6 +304,7 @@ tfoot td strong *{
   border-radius:2px;
   background-color:#557b97;
   text-transform:uppercase;
+  text-align:center;
   font-weight:bold;
   font-size:14px;
   letter-spacing:1px;
@@ -460,5 +462,70 @@ footer .container{
   display:block;
   width:50%;
   margin:auto;
+}
+
+.table-message{
+  display:none;
+}
+
+/* Les médias queries vont permettrent d'ajouter des règles css seulement si mon viewport (la surface sur laquelle apparait mon site) fait une certaine taille 
+  Je peux donc réecrire tout ou partie du comportement d'une balise en fonction du viewport */
+
+/* Si mon viewport fait entre 0 et 600px */
+@media only screen and (max-width:600px){
+    table {
+      display:none;
+    }
+    .table-message{
+      display:block;
+    }
+
+    .basket-actions{
+      word-spacing:normal;
+    }
+    .basket-actions li {
+       display:block;
+       margin-bottom:20px; 
+    }
+    .button{
+      font-size:12px;
+    }
+    .basket-actions .button{
+      display:block;
+    }
+
+}
+
+/* Si mon viewport fait entre 0 et 950px */
+@media only screen and (max-width:950px){
+   footer .container {
+      flex-direction:column;
+    }
+
+    .links, .description{
+      margin-right:0;
+      margin-bottom:25px;
+    }
+
+    .newsletter input{
+      width:100%;
+    }
+
+    .newsletter .button{
+      display:block;
+      width:100%;
+      margin-top:10px;
+    }
+}
+
+/* pas utile mais pour la démo du min-width */
+/* Si mon viewport fait au moins 601px */
+@media only screen and (min-width:601px){
+  table {
+      display:table;
+  }
+  .table-message{
+      display:none;
+  }
 }
 
